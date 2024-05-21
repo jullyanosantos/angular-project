@@ -1,0 +1,60 @@
+
+<!-- <hr /> -->
+
+<!-- <div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">
+                            <i class="pi pi-filter"></i>
+                            _filtro
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="selectUser">Usuário</label>
+                                drop
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">
+                    <i class="pi pi-plus"></i>
+                    {{ title }}
+                </h4>
+            </div>
+            <div class="card-body mt-5">
+
+
+                <section id="form">
+                    <form (ngSubmit)="onSubmit()" #formTask="ngForm">
+                        <div class="row">
+                            <div class="form-group">
+                                <label>Descrição</label>
+                                <textarea [(ngModel)]="task.description" name="description" rows="5"
+                                    class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <div>
+                                <button type="submit" class="btn btn-primary mr-5">Salvar</button>
+                                <button type="button" class="btn btn-secondary" [routerLink]="['']">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

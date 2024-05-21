@@ -1,0 +1,7 @@
+<select [value]='selectedItem' (change)="onChange($event)" class="form-control select-option">
+    <option [value]="0" selected>-- Select --</option>
+    @for(item of options; track item.id){
+    <option [value]="item.id">{{item.description}}</option>
+    }
+
+</select>
