@@ -1,0 +1,53 @@
+<!-- <h3><i class="pi pi-list"></i> Tarefas</h3>
+<hr /> -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="mr-2 card-header-action d-flex align-items-end justify-content-end">
+                            <button pButton pRibble type="button" icon="pi pi-refresh"
+                                class="p-button-rounded p-button-warning p-button-text" pTooltip="Atualizar"
+                                tooltipPosition="top">
+                            </button>
+                            <button pButton pRibble type="button" icon="pi pi-plus"
+                                class="p-button-rounded p-button-warning p-button-text" [routerLink]="['/new']"
+                                pTooltip="Nova tarefa" tooltipPosition="top">
+                            </button>
+                        </div>
+                        <h4 class="card-title">
+                            <i class="pi pi-list"></i> _tarefas
+                        </h4>
+                    </div>
+                    <div class="card-body mt-5">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <!-- <div class="row">    
+                                    <div class="d-flex align-items-end justify-content-end">
+                                        <div>
+                                            <button href="#" class="btn"><i class="pi pi-refresh" pTooltip="Atualizar" tooltipPosition="top"></i></button>
+                                            <button href="#" class="btn"><i class="pi pi-plus" [routerLink]="['/new']" pTooltip="Nova tarefa" tooltipPosition="top" ></i></button>
+                                        </div>
+                                    </div>    
+                                </div> -->
+                                <div class="row">
+                                    <div *ngIf="tasks.length == 0" class="alert alert-warning" role="alert">
+                                        Nenhuma terefa foi cadastrada ainda.
+                                    </div>
+
+                                    <ul class="list-group" *ngIf="tasks.length > 0">
+                                        <li class="list-group-item" *ngFor="let task of tasks">
+                                            <app-task-list-item [task]="task" class="task-item"
+                                                (onDeleteTask)="onTaskDeleted($event)"></app-task-list-item>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

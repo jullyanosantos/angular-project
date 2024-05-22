@@ -1,0 +1,23 @@
+<div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" [(ngModel)]="task.completed"
+        (change)="onCompletedCheckChange(task)" />
+</div>
+<div [innerHTML]="task.description" class="task-item-description" [ngClass]="task.completed ? 'task-completed' : ''">
+</div>
+<div class="mr-5">
+    <button pButton pRibble type="button" icon="pi pi-user-edit" class="p-button-rounded p-button-warning p-button-text"
+        pTooltip="Editar" tooltipPosition="top" [routerLink]="['/edit', task.id]">
+    </button>
+    <!-- <button type="button" [routerLink]="['/edit', task.id]" class="btn btn-primary mr-1">
+        Alterar
+    </button> -->
+</div>
+<div>
+    <button pButton pRibble type="button" icon="pi pi-trash" class="p-button-rounded p-button-warning p-button-text"
+        pTooltip="Excluir" tooltipPosition="top" (click)="remove(task)">
+    </button>
+
+    <!-- <button type="button" class="btn btn-danger" (click)="remove(task)">
+        Excluir
+    </button> -->
+</div>
