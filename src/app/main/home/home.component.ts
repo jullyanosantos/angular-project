@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { AppComponentBase } from '../../shared/app-component-base';
 import { SelectComponent } from '../../shared/components/select/select.component';
 import { Task } from '../tasks/shared/task';
+import { ButtonBusyDirective } from '../../../shared/directives/button-busy.directive';
 
 declare interface TableData {
   headerRow: string[];
@@ -14,11 +15,12 @@ declare interface TableData {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ButtonModule, FormsModule, CommonModule, SelectComponent],
+  imports: [ButtonModule, FormsModule, CommonModule, SelectComponent, ButtonBusyDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent extends AppComponentBase implements OnInit {
+  loading = true;
   public tableData1: TableData | undefined;
 
   public tasks: Task[] = [

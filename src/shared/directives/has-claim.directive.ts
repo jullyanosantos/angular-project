@@ -13,12 +13,13 @@ export class HasClaimDirective {
     { }
 
     @Input() set appHasClaim(claimType: string) {
-      // if (this.accountService.hasClaim(claimType)) {
-      //   // Add template to DOM
-      //   this.viewContainer.createEmbeddedView(this.templateRef);
-      // } else {
-      //   // Remove template from DOM
-      //   this.viewContainer.clear();
-      // }
+      
+      if (this.accountService.hasClaim(claimType)) {
+        // Add template to DOM
+        this.viewContainer.createEmbeddedView(this.templateRef);
+      } else {
+        // Remove template from DOM
+        this.viewContainer.clear();
+      }
     }
 }

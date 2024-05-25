@@ -2,7 +2,8 @@ import { Directive, ElementRef, Input, OnInit, AfterViewInit } from '@angular/co
 // import * as _ from 'lodash-es';
 
 @Directive({
-    selector: '[buttonBusy]'
+    selector: '[buttonBusy]',
+    standalone: true
 })
 export class ButtonBusyDirective implements OnInit, AfterViewInit {
 
