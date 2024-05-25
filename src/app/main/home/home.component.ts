@@ -3,10 +3,11 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 
+import { ButtonBusyDirective } from '../../shared/_directives/button-busy.directive';
+import { SpinnerButtonDirective } from '../../shared/_directives/spinner-button-directive';
 import { AppComponentBase } from '../../shared/app-component-base';
 import { SelectComponent } from '../../shared/components/select/select.component';
 import { Task } from '../tasks/shared/task';
-import { ButtonBusyDirective } from '../../../shared/directives/button-busy.directive';
 
 declare interface TableData {
   headerRow: string[];
@@ -15,7 +16,15 @@ declare interface TableData {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ButtonModule, FormsModule, CommonModule, SelectComponent, ButtonBusyDirective],
+  imports:
+    [
+      ButtonModule,
+      FormsModule,
+      CommonModule,
+      SelectComponent,
+      ButtonBusyDirective,
+      SpinnerButtonDirective
+    ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -33,6 +42,9 @@ export class HomeComponent extends AppComponentBase implements OnInit {
   }
 
   ngOnInit() {
+
+    this.alertService.info("Teste juliano", { autoClose: true });
+    this.toatrService.info("Teste msg toastr");
 
     this.tableData1 = {
       headerRow: ['ID', 'Name', 'Country', 'City', 'Salary'],

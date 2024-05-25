@@ -1,5 +1,5 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { AccountService } from '../common/services-proxies/account.service';
+import { AccountService } from '../_services/account.service';
 
 @Directive({
    selector: '[appHasClaim]'

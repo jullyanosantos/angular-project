@@ -1,5 +1,4 @@
-import { Directive, ElementRef, Input, OnInit, AfterViewInit } from '@angular/core';
-// import * as _ from 'lodash-es';
+import { AfterViewInit, Directive, ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
     selector: '[buttonBusy]',
@@ -14,7 +13,7 @@ export class ButtonBusyDirective implements OnInit, AfterViewInit {
     @Input() busyText: string = "";
 
     private _button: any;
-    private _originalButtonInnerHtml: any;
+    private _originalButtonInnerHtml: any = "";
 
     constructor(
         private _element: ElementRef,
@@ -30,6 +29,7 @@ export class ButtonBusyDirective implements OnInit, AfterViewInit {
     }
 
     refreshState(isBusy: boolean): void {
+        debugger
         if (!this._button) {
             return;
         }

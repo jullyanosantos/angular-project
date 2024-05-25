@@ -10,8 +10,15 @@
             <div class="card-body mt-5">
 
                 <div class="form-group">
-                    <input type="submit" class="btnSubmit" value="Login" [buttonBusy]="loading"
-                        [busyText]="' Carregando...'" [disabled]="loading" />
+                    <button type="button" class="btn btn-primary" 
+                        [buttonBusy]="loading" [busyText]="'Carregando...'"
+                        [disabled]="loading">Enviar</button>
+
+                        <button  type="button" class="btn btn-primary" 
+                        [spinnerButton]="false">Get Data</button>
+
+                    <!-- <input type="submit" class="btnSubmit" value="Login" [buttonBusy]="loading"
+                        [busyText]="' Carregando...'" [disabled]="loading" /> -->
                 </div>
 
                 <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">

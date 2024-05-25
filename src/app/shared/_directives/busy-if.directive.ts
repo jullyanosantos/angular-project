@@ -21,6 +21,7 @@ export class BusyIfDirective {
 
         if (isBusy) {
             // ebs.ui.setBusy(this._element.nativeElement);
+            alert('ocupado');
         } else {
             // ebs.ui.clearBusy(this._element.nativeElement);
         }

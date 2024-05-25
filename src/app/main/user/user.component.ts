@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, Injector, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { first } from 'rxjs';
 
+import { UserService } from '../../shared/_services/user.service';
 import { AppComponentBase } from '../../shared/app-component-base';
 
 declare interface TableData {
@@ -21,12 +23,26 @@ export class UserComponent extends AppComponentBase implements OnInit {
   public tableData1: TableData | undefined;
   public tableData2: TableData | undefined;
 
-  constructor(injector: Injector) {
+  public lotes: TableData | undefined;
+  public ranking: TableData | undefined;
+
+  constructor(injector: Injector,
+    private userService: UserService,
+  ) {
     super(injector);
   }
 
   ngOnInit() {
-    this.sweetAlertService.success("Usuários carregados com sucesso!");
+
+    // this.tostrNotify.success(msg);
+
+    debugger
+    this.alertService.success("Dados carregados com sucesso!", { autoClose: true });
+    this.getLotes();
+    this.getRanking();
+
+    // this.sweetAlertService.success("Usuários carregados com sucesso!");
+
     this.tableData1 = {
       headerRow: ['ID', 'Name', 'Country', 'City', 'Salary'],
       dataRows: [
@@ -49,5 +65,95 @@ export class UserComponent extends AppComponentBase implements OnInit {
         ['6', 'Mason Porter', '$78,615', 'Chile', 'Gloucester']
       ]
     };
+  }
+
+  getRanking(): void {
+    this.userService.getRanking().subscribe({
+      next: (data) => {
+        debugger
+        if (data.length > 0) {
+
+          let rows: string[][] = [];
+
+          data.forEach((item: any) => {
+            item.rankings.forEach((r: any) => {
+              rows.push([r.sinCodRanking, r.descRanking])
+            })
+          });
+
+          this.ranking = {
+            headerRow: ['ID', 'Descrição'],
+            dataRows: rows
+          };
+
+          // this.sweetAlertService.success("Ranking carregados com sucesso! Total: " + aa.length);
+        }
+      },
+      error: (error) => {
+        // Handle error cases
+      },
+      complete: () => {
+        // Handle completion cases
+      }
+    });
+  }
+
+  // getRanking() {
+
+  //   this.userService.getRanking()
+  //     .pipe(first())
+  //     .subscribe(data => {
+  //       debugger
+  //       if (data.length > 0) {
+
+  //         let rows: string[][] = [];
+
+  //         data.forEach((item: any) => {
+  //           item.rankings.forEach((r: any) => {
+  //             rows.push([r.sinCodRanking, r.descRanking])
+  //           })
+  //         });
+
+  //         this.ranking = {
+  //           headerRow: ['ID', 'Descrição'],
+  //           dataRows: rows
+  //         };
+
+  //         // this.sweetAlertService.success("Ranking carregados com sucesso! Total: " + aa.length);
+  //       }
+  //     },
+  //       error => {
+  //         debugger
+  //       });
+  // }
+
+  getLotes() {
+
+    this.userService.getLotes()
+      .pipe(first())
+      .subscribe(data => {
+
+        debugger
+        if (data.length > 0) {
+
+          let rows: string[][] = [];
+
+          data.forEach((item: any) => {
+            item.lotes.forEach((lote: any) => {
+              rows.push([lote.idLote, lote.descLote])
+            })
+          });
+
+          this.lotes = {
+            headerRow: ['ID', 'Descrição'],
+            dataRows: rows
+          };
+
+        }
+        // this.sweetAlertService.success("Lotes carregados com sucesso! Total: " + aa.length);
+      },
+        error => {
+          debugger
+        });
   }
 }
