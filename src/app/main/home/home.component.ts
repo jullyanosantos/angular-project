@@ -45,9 +45,6 @@ export class HomeComponent extends AppComponentBase implements OnInit {
 
   ngOnInit() {
 
-    // this.alertService.info("Teste juliano", { autoClose: true });
-    // this.toatrService.info("Teste msg toastr");
-
     this.tableData1 = {
       headerRow: ['ID', 'Name', 'Country', 'City', 'Salary'],
       dataRows: [
@@ -60,7 +57,6 @@ export class HomeComponent extends AppComponentBase implements OnInit {
       ]
     };
 
-    
     setTimeout(() => {
       this.loading = false
     }, 2000);    
