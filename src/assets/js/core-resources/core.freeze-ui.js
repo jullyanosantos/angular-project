@@ -1,11 +1,11 @@
-var app = app || {};
+var core = core || {};
 (function () {
 
-    app.ui.setBusy = function (element, text, freezeDelay) {
+    core.ui.setBusy = function (element, text, freezeDelay) {
         FreezeUI({ element: element, text: text ? text : ' ', freezeDelay: freezeDelay });
     };
 
-    app.ui.clearBusy = function (element, freezeDelay) {
+    core.ui.clearBusy = function (element, freezeDelay) {
         UnFreezeUI({ element: element,freezeDelay: freezeDelay });
     };
 

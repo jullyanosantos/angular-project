@@ -8,6 +8,7 @@ import { SpinnerButtonDirective } from '../../shared/_directives/spinner-button-
 import { AppComponentBase } from '../../shared/app-component-base';
 import { SelectComponent } from '../../shared/components/select/select.component';
 import { Task } from '../tasks/shared/task';
+import { BusyIfDirective } from '../../shared/_directives/busy-if.directive';
 
 declare interface TableData {
   headerRow: string[];
@@ -23,13 +24,14 @@ declare interface TableData {
       CommonModule,
       SelectComponent,
       ButtonBusyDirective,
-      SpinnerButtonDirective
+      SpinnerButtonDirective,
+      BusyIfDirective
     ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent extends AppComponentBase implements OnInit {
-  loading = true;
+  loading = false;
   public tableData1: TableData | undefined;
 
   public tasks: Task[] = [
@@ -43,8 +45,8 @@ export class HomeComponent extends AppComponentBase implements OnInit {
 
   ngOnInit() {
 
-    this.alertService.info("Teste juliano", { autoClose: true });
-    this.toatrService.info("Teste msg toastr");
+    // this.alertService.info("Teste juliano", { autoClose: true });
+    // this.toatrService.info("Teste msg toastr");
 
     this.tableData1 = {
       headerRow: ['ID', 'Name', 'Country', 'City', 'Salary'],
@@ -57,6 +59,11 @@ export class HomeComponent extends AppComponentBase implements OnInit {
         ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
       ]
     };
+
+    
+    setTimeout(() => {
+      this.loading = false
+    }, 2000);    
   }
 
   onChange(id: string) {

@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" [busyIf]="loading">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -37,6 +37,55 @@
                                 tooltipPosition="top">
                             </button>
                         </div>
+                        <h4 class="card-title">_usuários</h4>
+                        <!-- <p class="card-category">Here is a subtitle for this table</p> -->
+                    </div>
+                    <div class="card-body mt-5 table-full-width table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nome</th>
+                                    <th>E-mail</th>
+                                    <th>Sobrenome</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (item of users; track $index) {
+                                <tr>
+                                    <td>{{item.id}}</td>
+                                    <td>{{item.first_name}}</td>
+                                    <td>{{item.user_name}}</td>
+                                    <td>{{item.last_name}}</td>
+                                    <td>{{item.status}}</td>
+                                </tr>
+                                }
+                                <!-- <tr *ngFor="let row of lotes!.dataRows">
+                                    <td *ngFor="let cell of row">{{cell}}</td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="mr-2 card-header-action d-flex align-items-end justify-content-end">
+                            <button pButton pRibble type="button" icon="pi pi-refresh"
+                                class="p-button-rounded p-button-warning p-button-text" pTooltip="Atualizar"
+                                tooltipPosition="top">
+                            </button>
+                            <button pButton pRibble type="button" icon="pi pi-plus"
+                                class="p-button-rounded p-button-warning p-button-text" pTooltip="Novo"
+                                tooltipPosition="top">
+                            </button>
+                        </div>
                         <h4 class="card-title">_lotes</h4>
                         <!-- <p class="card-category">Here is a subtitle for this table</p> -->
                     </div>
@@ -44,13 +93,13 @@
                         <table class="table table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th *ngFor="let cell of lotes!.headerRow">{{ cell }}</th>
+                                    <!-- <th *ngFor="let cell of lotes!.headerRow">{{ cell }}</th> -->
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let row of lotes!.dataRows">
+                                <!-- <tr *ngFor="let row of lotes!.dataRows">
                                     <td *ngFor="let cell of row">{{cell}}</td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
 
@@ -80,13 +129,13 @@
                         <table class="table table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th *ngFor="let cell of ranking!.headerRow">{{ cell }}</th>
+                                    <!-- <th *ngFor="let cell of ranking!.headerRow">{{ cell }}</th> -->
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let row of ranking!.dataRows">
+                                <!-- <tr *ngFor="let row of ranking!.dataRows">
                                     <td *ngFor="let cell of row">{{cell}}</td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
 
@@ -131,7 +180,7 @@
         </div> -->
     </div>
 
-    
+
     <!-- <div class="col-md-12">
                 <div class="card card-plain">
                     <div class="header">

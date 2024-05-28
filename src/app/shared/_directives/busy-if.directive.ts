@@ -7,6 +7,7 @@ import { Directive, ElementRef, Input } from '@angular/core';
 export class BusyIfDirective {
 
     @Input() set busyIf(isBusy: boolean) {
+
         this.refreshState(isBusy);
     }
 
@@ -15,15 +16,20 @@ export class BusyIfDirective {
     ) { }
 
     refreshState(isBusy: boolean): void {
+        debugger
         if (isBusy === undefined) {
             return;
         }
 
+        debugger
         if (isBusy) {
-            // ebs.ui.setBusy(this._element.nativeElement);
-            alert('ocupado');
+            if (core !== undefined) {
+                core.ui.setBusy(this._element.nativeElement);
+            }
         } else {
-            // ebs.ui.clearBusy(this._element.nativeElement);
+            if (core !== undefined) {
+                core.ui.clearBusy(this._element.nativeElement);
+            }
         }
     }
 }

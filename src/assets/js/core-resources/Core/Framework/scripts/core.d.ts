@@ -1,4 +1,4 @@
-﻿declare namespace app {
+﻿declare namespace core {
 
     namespace ui {
 
@@ -9,6 +9,5 @@
         function setBusy(elm?: any, optionsOrPromise?: any): void;
 
         function clearBusy(elm?: any): void;
-
     }
 }
