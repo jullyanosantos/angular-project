@@ -19,13 +19,12 @@ export class BusyIfDirective {
         if (isBusy === undefined) {
             return;
         }
-
-        if (isBusy) {
-            if (core !== undefined) {
+        
+        if (core != undefined) {
+            if (isBusy) {
                 core.ui.setBusy(this._element.nativeElement);
-            }
-        } else {
-            if (core !== undefined) {
+
+            } else {
                 core.ui.clearBusy(this._element.nativeElement);
             }
         }

@@ -1,0 +1,74 @@
+[
+    {
+        "rankings": [
+            {
+                "sinCodRanking": 69,
+                "descRanking": "Estrategica"
+            },
+            {
+                "sinCodRanking": 107,
+                "descRanking": "Caidos REC 1"
+            },
+            {
+                "sinCodRanking": 108,
+                "descRanking": "Caidos REC 2"
+            },
+            {
+                "sinCodRanking": 109,
+                "descRanking": "Caidos REC 3"
+            },
+            {
+                "sinCodRanking": 112,
+                "descRanking": "Coincidentes REC"
+            },
+            {
+                "sinCodRanking": 124,
+                "descRanking": "PNJ Rec 1"
+            },
+            {
+                "sinCodRanking": 125,
+                "descRanking": "PNJ Rec 2"
+            },
+            {
+                "sinCodRanking": 126,
+                "descRanking": "PNJ Rec 3"
+            },
+            {
+                "sinCodRanking": 127,
+                "descRanking": "PNJ Rec 4"
+            },
+            {
+                "sinCodRanking": 128,
+                "descRanking": "PNJ Rec 5"
+            },
+            {
+                "sinCodRanking": 129,
+                "descRanking": "VEIC EXTRA \u2013 LOTES < 2021"
+            },
+            {
+                "sinCodRanking": 130,
+                "descRanking": "VEIC EXTRA \u2013 LOTES > 2021"
+            },
+            {
+                "sinCodRanking": 133,
+                "descRanking": "Banco - Atraso <= 3 Anos"
+            },
+            {
+                "sinCodRanking": 134,
+                "descRanking": "Banco - Atraso > 3 Anos"
+            },
+            {
+                "sinCodRanking": 136,
+                "descRanking": "N\u00e3o Bancos - Atraso <= 3 Anos"
+            },
+            {
+                "sinCodRanking": 137,
+                "descRanking": "N\u00e3o Bancos - Atraso > 3 Anos"
+            },
+            {
+                "sinCodRanking": 140,
+                "descRanking": "Proposta < 300"
+            }
+        ]
+    }
+]

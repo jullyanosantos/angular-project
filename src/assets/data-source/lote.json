@@ -1,0 +1,46 @@
+[
+    {
+        "lotes": [
+            {
+                "idLote": 1,
+                "descLote": "GALC VARJ P 2004-12"
+            },
+            {
+                "idLote": 2,
+                "descLote": "HSBC INMB P 2004-09"
+            },
+            {
+                "idLote": 3,
+                "descLote": "HSBC INMB P 2004-09"
+            },
+            {
+                "idLote": 4,
+                "descLote": "MERI VARJ P 2005-04"
+            },
+            {
+                "idLote": 5,
+                "descLote": "Lote 1"
+            },
+            {
+                "idLote": 6,
+                "descLote": "Lote 1"
+            },
+            {
+                "idLote": 7,
+                "descLote": "COTO VARJ P 2009-11"
+            },
+            {
+                "idLote": 8,
+                "descLote": "COTO VARJ P 2010-06"
+            },
+            {
+                "idLote": 9,
+                "descLote": "COTO VARJ P 2010-09"
+            },
+            {
+                "idLote": 10,
+                "descLote": "COTO VARJ P 2011-05"
+            }
+        ]
+    }
+]
