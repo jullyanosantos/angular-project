@@ -1,0 +1,71 @@
+{
+    "success": true,
+    "data": {
+        "totalItems": 1,
+        "pageNumber": 1,
+        "pageSize": 10,
+        "list": [
+            {
+                "id": 1,
+                "user_name": "juliano@user.com",
+                "first_name": "Juliano",
+                "last_name": "Santos",
+                "date_of_birthday": "1999-01-01",
+                "status": true,
+                "pictureUrl": "../../../assets/images/nopictureuser.png"
+            },
+            {
+                "id": 2,
+                "user_name": "miguel@user.com",
+                "first_name": "Miguel",
+                "last_name": "Correia",
+                "date_of_birthday": "1999-01-01",
+                "status": true,
+                "pictureUrl": "../../../assets/images/nopictureuser.png"
+            },
+            {
+                "id": 3,
+                "user_name": "angela@user.com",
+                "first_name": "Angela",
+                "lastName": "Barbosa",
+                "date_of_birthday": "1999-01-01",
+                "status": true,
+                "pictureUrl": "../../../assets/images/nopictureuser.png"
+            },
+            {
+                "id": 4,
+                "user_name": "augusto@user.com",
+                "first_name": "Augusto",
+                "last_name": "Oiveira",
+                "date_of_birthday": "1999-01-01",
+                "status": true,
+                "pictureUrl": "../../../assets/images/nopictureuser.png"
+            },
+            {
+                "id": 5,
+                "user_name": "marcelo@user.com",
+                "first_name": "Marcelo",
+                "last_name": "Santos",
+                "date_of_birthday": "1999-01-01",
+                "status": true,
+                "pictureUrl": "../../../assets/images/nopictureuser.png"
+            },
+            {
+                "id": 2,
+                "firstName": "admin",
+                "lastName": "admin",
+                "pictureUrl": "../../../assets/images/nopictureuser.png",
+                "email": "admin@defaulttenant.com",
+                "userName": "admin",
+                "status": "Ativo",
+                "roles": "Admin",
+                "logged": false
+            }
+        ],
+        "totalPages": 1,
+        "hasPreviousPage": false,
+        "hasNextPage": false,
+        "nextPageNumber": 1,
+        "previousPageNumber": 1
+    }
+}

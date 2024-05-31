@@ -16,12 +16,10 @@ export class BusyIfDirective {
     ) { }
 
     refreshState(isBusy: boolean): void {
-        debugger
         if (isBusy === undefined) {
             return;
         }
 
-        debugger
         if (isBusy) {
             if (core !== undefined) {
                 core.ui.setBusy(this._element.nativeElement);

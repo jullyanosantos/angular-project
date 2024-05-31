@@ -1,0 +1,42 @@
+{
+    "success": true,
+    "data": {
+      "totalItems": 3,
+      "pageNumber": 1,
+      "pageSize": 10,
+      "list": [
+        {
+          "id": 1,
+          "name": "Admin",
+          "displayName": "Admin",
+          "isStatic": true,
+          "isDefault": false,
+          "grantedPermissions": null,
+          "creationDateTime": "25/04/2023 04:31"
+        },
+        {
+          "id": 3,
+          "name": "Manager",
+          "displayName": "Manager",
+          "isStatic": true,
+          "isDefault": false,
+          "grantedPermissions": null,
+          "creationDateTime": "25/04/2023 04:31"
+        },
+        {
+          "id": 2,
+          "name": "User",
+          "displayName": "User",
+          "isStatic": true,
+          "isDefault": true,
+          "grantedPermissions": null,
+          "creationDateTime": "25/04/2023 04:31"
+        }
+      ],
+      "totalPages": 1,
+      "hasPreviousPage": false,
+      "hasNextPage": false,
+      "nextPageNumber": 1,
+      "previousPageNumber": 1
+    }
+  }
