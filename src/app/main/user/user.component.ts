@@ -4,12 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { first } from 'rxjs';
 
-import { UserService } from '../../shared/_services/user.service';
-import { AppComponentBase } from '../../shared/app-component-base';
+import { BusyIfDirective } from '../../shared/_directives/busy-if.directive';
 import { ButtonBusyDirective } from '../../shared/_directives/button-busy.directive';
 import { SpinnerButtonDirective } from '../../shared/_directives/spinner-button-directive';
-import { BusyIfDirective } from '../../shared/_directives/busy-if.directive';
 import { User } from '../../shared/_models/user';
+import { UserService } from '../../shared/_services/user.service';
+import { AppComponentBase } from '../../shared/app-component-base';
 
 declare interface TableData {
   headerRow: string[];
@@ -36,7 +36,10 @@ export class UserComponent extends AppComponentBase implements OnInit {
   public tableData2: TableData | undefined;
 
   public lotes: TableData | undefined;
-  public ranking: TableData | undefined;
+  public ranking: TableData = {
+    headerRow: ['ID', 'Descrição'],
+    dataRows: []
+  };
   users: User[] = [];
   loading = false;
 
@@ -46,17 +49,14 @@ export class UserComponent extends AppComponentBase implements OnInit {
     super(injector);
   }
 
-  ngOnInit() {
-
-    // this.tostrNotify.success(msg);
-    this.alertService.success("Loaded with success!", { autoClose: true });
-    this.toatrService.info("Test msg toastr");
-
-    // this.getLotes();
-    // this.getRanking();
-
+  reloadUser() {
     this.getUsers();
-    // this.sweetAlertService.success("Usuários carregados com sucesso!");
+  }
+
+  ngOnInit() {
+    this.reloadUser();
+    // this.getLotes();
+    this.getRanking();
 
     // this.tableData1 = {
     //   headerRow: ['ID', 'Name', 'Country', 'City', 'Salary'],
@@ -82,90 +82,59 @@ export class UserComponent extends AppComponentBase implements OnInit {
     // };
   }
 
-
   getUsers(): void {
     this.loading = true;
 
     this.userService.getAll()
       .subscribe({
-        next: (response) => {
-          this.users = response.data;
+        next: (resp) => {
+          this.users = resp.data;
+          this.alertService.success("Loaded with success!", { autoClose: true });
+          // this.toatrService.info("Test msg toastr");
+          // this.sweetAlertService.success("Usuários carregados com sucesso!");
         },
         error: (err) => {
-          debugger
           this.toatrService.error("Error getting users");
         },
         complete: () => {
-          // Handle completion cases
           setTimeout(() => {
             this.loading = false
-          }, 2000);  
+          }, 2000);
         }
       });
   }
 
   getRanking(): void {
     this.loading = true;
-    this.userService.getRanking().subscribe({
-      next: (data) => {
-        debugger
-        if (data.length > 0) {
+    this.userService.getRanking()
+      .subscribe({
+        next: (data) => {
+          if (data.length > 0) {
 
-          let rows: string[][] = [];
+            let rows: string[][] = [];
 
-          data.forEach((item: any) => {
-            item.rankings.forEach((r: any) => {
-              rows.push([r.sinCodRanking, r.descRanking])
-            })
-          });
+            data.forEach((item: any) => {
+              item.rankings.forEach((r: any) => {
+                rows.push([r.sinCodRanking, r.descRanking])
+              })
+            });
 
-          this.ranking = {
-            headerRow: ['ID', 'Descrição'],
-            dataRows: rows
-          };
-
-          // this.sweetAlertService.success("Ranking carregados com sucesso! Total: " + aa.length);
+            this.ranking = {
+              headerRow: ['ID', 'Descrição'],
+              dataRows: rows
+            };
+          }
+        },
+        error: (error) => {
+          this.toatrService.error(error);
+        },
+        complete: () => {
+          setTimeout(() => {
+            this.loading = false
+          }, 5000);
         }
-      },
-      error: (error) => {
-        this.toatrService.error(error);
-        // Handle error cases
-      },
-      complete: () => {
-        // Handle completion cases
-        this.loading = false;
-      }
-    });
+      });
   }
-
-  // getRanking() {
-
-  //   this.userService.getRanking()
-  //     .pipe(first())
-  //     .subscribe(data => {
-  //       debugger
-  //       if (data.length > 0) {
-
-  //         let rows: string[][] = [];
-
-  //         data.forEach((item: any) => {
-  //           item.rankings.forEach((r: any) => {
-  //             rows.push([r.sinCodRanking, r.descRanking])
-  //           })
-  //         });
-
-  //         this.ranking = {
-  //           headerRow: ['ID', 'Descrição'],
-  //           dataRows: rows
-  //         };
-
-  //         // this.sweetAlertService.success("Ranking carregados com sucesso! Total: " + aa.length);
-  //       }
-  //     },
-  //       error => {
-  //         debugger
-  //       });
-  // }
 
   getLotes() {
 
@@ -173,7 +142,6 @@ export class UserComponent extends AppComponentBase implements OnInit {
       .pipe(first())
       .subscribe(data => {
 
-        debugger
         if (data.length > 0) {
 
           let rows: string[][] = [];
@@ -190,10 +158,11 @@ export class UserComponent extends AppComponentBase implements OnInit {
           };
 
         }
+        this.loading = false;
+
         // this.sweetAlertService.success("Lotes carregados com sucesso! Total: " + aa.length);
-      },
-        error => {
-          debugger
-        });
+      }, error => {
+        this.toatrService.error(error);
+      });
   }
 }

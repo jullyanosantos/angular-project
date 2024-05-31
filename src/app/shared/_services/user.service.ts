@@ -1,10 +1,10 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { BaseResult } from '../_models/base-result';
-import { Rank } from '../_models/ranking';
+
 import { environment } from '../../../environments/environment';
+import { BaseResult } from '../_models/base-result';
 import { User } from '../_models/user';
 
 @Injectable({
@@ -23,22 +23,20 @@ export class UserService {
 
     getRanking() {
 
-        let url = '';
+        let url = `${environment.api}/assets/data-source/rank.json`; 
 
         return this.httpClient.get<any>(url)
             .pipe(map(result => {
-                debugger
                 return result;
             }));
     }
     
     getLotes() {
 
-        let url = '';
+        let url = `${environment.api}/assets/data-source/lote.json`; 
 
         return this.httpClient.get<any>(url)
             .pipe(map(result => {
-                debugger
                 return result;
             }));
     }
@@ -48,7 +46,6 @@ export class UserService {
         let url = `${environment.api}/assets/data-source/user.json`; 
         return this.httpClient.get<BaseResult<User[]>>(url)
             .pipe(map(result => {
-                debugger
                 return result;
             }));
     }

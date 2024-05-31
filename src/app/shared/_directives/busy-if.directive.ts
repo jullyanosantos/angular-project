@@ -16,18 +16,15 @@ export class BusyIfDirective {
     ) { }
 
     refreshState(isBusy: boolean): void {
-        debugger
         if (isBusy === undefined) {
             return;
         }
-
-        debugger
-        if (isBusy) {
-            if (core !== undefined) {
+        
+        if (core != undefined) {
+            if (isBusy) {
                 core.ui.setBusy(this._element.nativeElement);
-            }
-        } else {
-            if (core !== undefined) {
+
+            } else {
                 core.ui.clearBusy(this._element.nativeElement);
             }
         }
