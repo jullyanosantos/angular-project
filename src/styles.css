@@ -255,3 +255,7 @@ html {
 .icon-effect-rotate {
   transition: transform 0.5s ease 0s;
 }
+
+.p-tabview-nav-content ul li a {
+  text-decoration: none !important;
+}

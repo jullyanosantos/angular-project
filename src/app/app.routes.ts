@@ -11,7 +11,7 @@ export const routes: Routes = [
     { path: 'user', title: 'User', component: UserComponent },
     
     { path: 'role', title: 'Role', component: RoleComponent },
-    
+
     { path: 'tasks', component: TaskListComponent },
     { path: 'new', component: TaskFormComponent },
     

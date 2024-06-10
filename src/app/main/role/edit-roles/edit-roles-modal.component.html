@@ -10,7 +10,38 @@
                     (click)="close()"></button>
             </div>
             <div class="modal-body">
-                <ul class="nav nav-tabs" id="ex1" role="tablist">
+                <p-tabView>
+                    <p-tabPanel header="Nome da Autorização" leftIcon="pi pi-pencil">
+                        <div class="form-group row">
+                            <label class="form-label col-md-12" for="RoleDisplayName">Nome da
+                                autorização *                                
+                            </label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control input-role-display-name"
+                                    name="RoleDisplayName" id="RoleDisplayName" #roleDisplayName required
+                                    minlength="2" maxlength="32" [(ngModel)]="role.displayName" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="labelDefault"
+                                class="col-md-7 form-check form-check-custom form-check-solid py-1">
+                                <p-checkbox name="group1" value="role.isDefault" binary="true"
+                                    [(ngModel)]="role.isDefault" inputId="labelDefault">
+                                </p-checkbox>
+                                <span class="form-check-label">
+                                    Padrão <small class="form-text text-muted">Atribuir a novos usuários
+                                        como padrão.</small>
+                                </span>
+                            </label>
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Permissões" leftIcon="pi pi-lock" >
+                        <permission-tree #permissionTree></permission-tree>                        
+                    </p-tabPanel>
+                </p-tabView>
+
+                <!-- <ul class="nav nav-tabs" id="ex1" role="tablist">
                     <li class="nav-item" role="presentation">
 
                         <a class="nav-link active" id="ex1-tab-1" data-bs-toggle="tab" href="#ex1-tabs-1" role="tab"
@@ -28,6 +59,7 @@
                         <div class="row">
                             <div class="mb-5 mt-4">
                                 <div class="container">
+
                                     <div class="form-group row">
                                         <label class="form-label col-md-12" for="RoleDisplayName">Nome da
                                             autorização *
@@ -61,12 +93,21 @@
                     <div class=" mt-4">
                         <permission-tree #permissionTree></permission-tree>
                     </div>
+                </div> -->
+            </div>
+
+            <div class="row">
+                <div class="container">
+                    <div class="alert alert-warning pl-1" style="margin-top:10px">
+                        <em>If you are changing your owun
+                            permissions, you
+                            may need to refresh (F5) to take effect of permissions
+                            changes on your own screen!
+                        </em>
+                    </div>
                 </div>
             </div>
-            <div class="alert alert-warning" style="margin-top:30px"><em>If you are changing your owun permissions, you
-                    may need to refresh (F5) to take effect of permissions
-                    changes on your own screen!</em>
-            </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="close()">Close</button>
                 <button [disabled]="loading" class="btn btn-primary" [buttonBusy]="loading"

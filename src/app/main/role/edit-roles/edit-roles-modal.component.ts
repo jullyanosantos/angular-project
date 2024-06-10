@@ -1,10 +1,10 @@
-
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, EventEmitter, Injector, OnInit, Output, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
+import { TabViewModule } from 'primeng/tabview';
 import { TreeModule } from 'primeng/tree';
 import { BusyIfDirective } from '../../../shared/_directives/busy-if.directive';
 import { ButtonBusyDirective } from '../../../shared/_directives/button-busy.directive';
@@ -15,6 +15,7 @@ import { RoleService } from '../../../shared/_services/role.service';
 import { AppComponentBase } from "../../../shared/app-component-base";
 import { PermissionTreeComponent } from '../../../shared/components/permission-tree/permission-tree.component';
 import { SelectComponent } from '../../../shared/components/select/select.component';
+
 declare var $: any;
 
 @Component({
@@ -22,10 +23,11 @@ declare var $: any;
     standalone: true,
     imports:
         [
-            ButtonModule,
-            CheckboxModule,
             FormsModule,
             CommonModule,
+            ButtonModule,
+            CheckboxModule,
+            TabViewModule,            
             ButtonBusyDirective,
             SpinnerButtonDirective,
             BusyIfDirective,

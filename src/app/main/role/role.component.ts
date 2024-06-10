@@ -75,7 +75,7 @@ export class RoleComponent extends AppComponentBase implements OnInit {
         complete: () => {
           setTimeout(() => {
             this.loading = false
-          }, 2000);
+          }, 1000);
         }
       });
   }
@@ -93,5 +93,4 @@ export class RoleComponent extends AppComponentBase implements OnInit {
       // );
     }
   }
-
 }

@@ -1,43 +1,44 @@
 .form-check.form-check-custom {
-    display: flex;
-    align-items: center;
-    padding-left: 12px;
-    margin: 0;
-  }
-  
-  .form-check.form-check-custom .form-check-label {
-    margin-left: 0.55rem;
-    display: flex;
-  }
-  
-  .form-check .form-check-label {
-    cursor: pointer;
-  }
-  
-  .text-muted {
-    color: #a1a5b7 !important;
-  }
-  
-  .text-muted {
-    --bs-text-opacity: 1;
-    color: #a1a5b7 !important;
-  }
-  
-  .form-text {
-    /* margin-top: 0.5rem; */
-    font-size: .925rem;
-    margin-left: 9px;
-    color: #a1a5b7;
-    margin-top: 2px !important;
-  }
-  
-  .form-label {
-    margin-bottom: 0.5rem;
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: #3f4254;
-  }
-  
-  .input-role-display-name {
-    margin-left: -17px;
-  }
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  margin-top: 11px;
+}
+
+.form-check.form-check-custom .form-check-label {
+  margin-left: 0.55rem;
+  display: flex;
+}
+
+.form-check .form-check-label {
+  cursor: pointer;
+}
+
+.text-muted {
+  color: #a1a5b7 !important;
+}
+
+.text-muted {
+  --bs-text-opacity: 1;
+  color: #a1a5b7 !important;
+}
+
+.form-text {
+  /* margin-top: 0.5rem; */
+  font-size: .925rem;
+  margin-left: 9px;
+  color: #a1a5b7;
+  margin-top: 2px !important;
+}
+
+.form-label {
+  margin-bottom: 0.5rem;
+  margin-left: -14px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #3f4254;
+}
+
+.input-role-display-name {
+  margin-left: -17px;
+}
