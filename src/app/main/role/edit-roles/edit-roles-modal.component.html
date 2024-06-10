@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="mb-5 mt-4">
                                 <div class="container">
-                                    <!-- <div class="form-group row">
+                                    <div class="form-group row">
                                         <label class="form-label col-md-12" for="RoleDisplayName">Nome da
                                             autorização *
                                             <div class="col-md-10">
@@ -38,9 +38,9 @@
                                                     [(ngModel)]="role.displayName" />
                                             </div>
                                         </label>
-                                    </div> -->
+                                    </div>
 
-                                    <!-- <div class="form-group row">
+                                    <div class="form-group row">
                                         <label for="labelDefault"
                                             class="col-md-7 form-check form-check-custom form-check-solid py-1">
                                             <p-checkbox name="group1" value="role.isDefault" binary="true"
@@ -51,7 +51,7 @@
                                                     como padrão.</small>
                                             </span>
                                         </label>
-                                    </div> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -59,6 +59,10 @@
                 </div>
                 <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
                     <permission-tree #permissionTree></permission-tree>
+                </div>
+                <div class="alert alert-warning" style="margin-top: 30px;"><em>If you are changing your own permissions, you
+                    may
+                    need to refresh page (F5) to take effect of permission changes on your own screen!</em>
                 </div>
             </div>
             <div class="modal-footer">
