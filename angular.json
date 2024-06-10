@@ -33,9 +33,11 @@
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "src/assets/lib/tree/css/primeng.tree.css",
               "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "src/assets/lib/freeze-UI/freeze-ui.js",
               "src/assets/lib/core-resources/core.js",

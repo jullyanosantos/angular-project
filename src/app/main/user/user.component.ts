@@ -10,6 +10,7 @@ import { SpinnerButtonDirective } from '../../shared/_directives/spinner-button-
 import { User } from '../../shared/_models/user';
 import { UserService } from '../../shared/_services/user.service';
 import { AppComponentBase } from '../../shared/app-component-base';
+import { List, PagedResult } from '../../shared/_models/paged-result';
 
 declare interface TableData {
   headerRow: string[];
@@ -40,7 +41,7 @@ export class UserComponent extends AppComponentBase implements OnInit {
     headerRow: ['ID', 'Descrição'],
     dataRows: []
   };
-  users: User[] = [];
+  users: any = [];
   loading = false;
 
   constructor(injector: Injector,
@@ -56,7 +57,7 @@ export class UserComponent extends AppComponentBase implements OnInit {
   ngOnInit() {
     this.reloadUser();
     // this.getLotes();
-    this.getRanking();
+    // this.getRanking();
 
     // this.tableData1 = {
     //   headerRow: ['ID', 'Name', 'Country', 'City', 'Salary'],
@@ -88,13 +89,16 @@ export class UserComponent extends AppComponentBase implements OnInit {
     this.userService.getAll()
       .subscribe({
         next: (resp) => {
-          this.users = resp.data;
-          this.alertService.success("Loaded with success!", { autoClose: true });
+          debugger
+          this.users = resp.data.list;
+          // this.alertService.success("Loaded with success!", { autoClose: true });
           // this.toatrService.info("Test msg toastr");
           // this.sweetAlertService.success("Usuários carregados com sucesso!");
         },
         error: (err) => {
-          this.toatrService.error("Error getting users");
+          // this.toatrService.error("Error getting users");
+          this.alertService.error("Error getting users");
+          this.loading = false;
         },
         complete: () => {
           setTimeout(() => {

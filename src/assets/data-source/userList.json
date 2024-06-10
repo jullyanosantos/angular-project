@@ -7,46 +7,46 @@
         "list": [
             {
                 "id": 1,
-                "user_name": "juliano@user.com",
-                "first_name": "Juliano",
-                "last_name": "Santos",
-                "date_of_birthday": "1999-01-01",
+                "userName": "juliano@user.com",
+                "firstName": "Juliano",
+                "lastName": "Santos",
+                "dateOfBirthday": "1999-01-01",
                 "status": true,
-                "pictureUrl": "../../../assets/images/nopictureuser.png"
+                "pictureUrl": "../../../assets/images/users/jsantos.jpg"
             },
             {
                 "id": 2,
-                "user_name": "miguel@user.com",
-                "first_name": "Miguel",
-                "last_name": "Correia",
-                "date_of_birthday": "1999-01-01",
+                "userName": "miguel@user.com",
+                "firstName": "Miguel",
+                "lastName": "Correia",
+                "dateOfBirthday": "1999-01-01",
                 "status": true,
-                "pictureUrl": "../../../assets/images/nopictureuser.png"
+                "pictureUrl": "../../../assets/images/users/msantos.jpg"
             },
             {
                 "id": 3,
-                "user_name": "angela@user.com",
-                "first_name": "Angela",
+                "userName": "angela@user.com",
+                "firstName": "Angela",
                 "lastName": "Barbosa",
-                "date_of_birthday": "1999-01-01",
+                "dateOfBirthday": "1999-01-01",
                 "status": true,
                 "pictureUrl": "../../../assets/images/nopictureuser.png"
             },
             {
                 "id": 4,
-                "user_name": "augusto@user.com",
-                "first_name": "Augusto",
-                "last_name": "Oiveira",
-                "date_of_birthday": "1999-01-01",
+                "userName": "augusto@user.com",
+                "firstName": "Augusto",
+                "lastName": "Oiveira",
+                "dateOfBirthday": "1999-01-01",
                 "status": true,
                 "pictureUrl": "../../../assets/images/nopictureuser.png"
             },
             {
                 "id": 5,
-                "user_name": "marcelo@user.com",
-                "first_name": "Marcelo",
-                "last_name": "Santos",
-                "date_of_birthday": "1999-01-01",
+                "userName": "marcelo@user.com",
+                "firstName": "Marcelo",
+                "lastName": "Santos",
+                "dateOfBirthday": "1999-01-01",
                 "status": true,
                 "pictureUrl": "../../../assets/images/nopictureuser.png"
             },

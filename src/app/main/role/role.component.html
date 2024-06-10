@@ -1,0 +1,92 @@
+<div class="content" [busyIf]="loading">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">
+                            <i class="pi pi-filter"></i>
+                            _filtro
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="selectUser">Autorizações</label>
+                                <br />
+                                <p-button type="button" pRipple label="Show" styleClass="mr-2" />
+                                <div pRipple class="card text-primary bg-primary flex select-none justify-content-center align-items-center shadow-2">
+                                    Default
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="mr-2 card-header-action d-flex align-items-end justify-content-end">
+                            <button pButton pRibble type="button" icon="pi pi-refresh icon icon-effect-rotate"
+                                class="p-button-rounded p-button-warning p-button-text" pTooltip="Atualizar"
+                                tooltipPosition="top" (click)="reloadPage()">
+                            </button>
+                            <button pButton pRibble type="button" icon="pi pi-plus icon icon-effect-rotate"
+                                class="p-button-rounded p-button-warning p-button-text" pTooltip="Novo"
+                                tooltipPosition="top">
+                            </button>
+                        </div>
+                        <h4 class="card-title">_autorizações</h4>
+                    </div>
+                    <div class="card-body mt-5 table-full-width table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th> Nome da Autorização</th>
+                                    <th>Data criação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if(roles) {
+                                @for (record of roles; track $index) {
+                                <tr>
+                                    <td>
+                                        {{record.name}}
+                                        <span *ngIf="record.isDefault">
+                                            <span class="badge text-bg-info mr-1">Padrão</span>
+                                        </span>
+                                        <span *ngIf="record.isStatic">
+                                            <span class="badge text-bg-primary mr-2">Estático</span>
+                                        </span>
+                                    </td>
+                                    <td> {{record.creationDateTime}}</td>
+                                    <td>
+                                        <button pButton pRibble type="button" icon="pi pi-pencil icon"
+                                            class="p-button-rounded p-button-warning p-button-text" pTooltip="Novo"
+                                            tooltipPosition="top" (click)="openModal(record.id)">
+                                        </button>
+                                    </td>
+                                </tr>
+                                } @empty {
+                                <p>Not found</p>
+                                }
+                                }
+                                @else {
+                                <p>Loading...</p>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <ng-template #viewUserTemplate> -->
+        <app-edit-roles-modal #createOreditRolesModal (modalEditRolesEmitter)="reloadPage()"></app-edit-roles-modal>
+        <!-- </ng-template> -->
+
+    </div>
