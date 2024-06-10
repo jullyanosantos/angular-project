@@ -30,12 +30,10 @@ export class ButtonBusyDirective implements OnInit, AfterViewInit {
     }
 
     ngOnChanges() {
-        debugger
         this.refreshState(this.isBusy);
     }
 
     refreshState(isBusy: boolean): void {
-        debugger
         if (!this._button) {
             return;
         }

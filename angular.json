@@ -33,13 +33,12 @@
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css"
+              "node_modules/primeng/resources/primeng.min.css",
+              "src/assets/lib/tree/css/primeng.tree.css"              
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "src/assets/lib/freeze-UI/freeze-ui.js",
-              "src/assets/lib/core-resources/core.js",
-              "src/assets/lib/core-resources/core.freeze-ui.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,

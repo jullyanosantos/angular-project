@@ -1,0 +1,80 @@
+{
+  "success": true,
+  "data": {
+    "role": {
+      "id": 3,
+      "name": "Manager",
+      "displayName": "Manager",
+      "isDefault": false
+    },
+    "permissions": [
+      {
+        "parentName": null,
+        "name": "Pages",
+        "displayName": "Pages",
+        "description": null
+      },
+      {
+        "parentName": "Pages",
+        "name": "Pages.Roles",
+        "displayName": "Autorizations",
+        "description": null
+      },
+      {
+        "parentName": "Pages.Roles",
+        "name": "Pages.Roles.Create",
+        "displayName": "Create Autorizations",
+        "description": null
+      },
+      {
+        "parentName": "Pages.Roles",
+        "name": "Pages.Roles.Edit",
+        "displayName": "Edit Autorizations",
+        "description": null
+      },
+      {
+        "parentName": "Pages.Roles",
+        "name": "Pages.Roles.Delete",
+        "displayName": "Delete Autorizations",
+        "description": null
+      },
+      {
+        "parentName": "Pages",
+        "name": "Pages.Users",
+        "displayName": "Users",
+        "description": null
+      },
+      {
+        "parentName": "Pages.Users",
+        "name": "Pages.Users.Activation",
+        "displayName": "Users Activation",
+        "description": null
+      },
+      {
+        "parentName": "Pages.Users",
+        "name": "Pages.Users.Create",
+        "displayName": "Create Users",
+        "description": null
+      },
+      {
+        "parentName": "Pages.Users",
+        "name": "Pages.Users.Edit",
+        "displayName": "Edit Users",
+        "description": null
+      },
+      {
+        "parentName": "Pages.Users",
+        "name": "Pages.Users.Delete",
+        "displayName": "Delete Users",
+        "description": null
+      },
+      {
+        "parentName": "Pages",
+        "name": "Pages.Tenants",
+        "displayName": "Tenants",
+        "description": null
+      }
+    ],
+    "grantedPermissionNames": []
+  }
+}

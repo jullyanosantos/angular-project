@@ -1,7 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
-@import "primeicons/primeicons.css";
 
 html {
     margin: 0px;
@@ -239,4 +236,22 @@ html {
   color: #000;
   text-shadow: 0 1px 0 #fff;
   opacity: .5;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+  height: 2rem;
+  width: 2rem;
+}
+
+.rounded-circle>span{
+  margin-left: .5rem;
+}
+
+.icon-effect-rotate:hover {
+  transform: rotate(180deg);
+}
+
+.icon-effect-rotate {
+  transition: transform 0.5s ease 0s;
 }

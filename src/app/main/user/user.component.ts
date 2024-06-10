@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Injector, OnInit } from '@angular/core';
+import { Component, ElementRef, Injector, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { first } from 'rxjs';
@@ -7,9 +7,9 @@ import { first } from 'rxjs';
 import { BusyIfDirective } from '../../shared/_directives/busy-if.directive';
 import { ButtonBusyDirective } from '../../shared/_directives/button-busy.directive';
 import { SpinnerButtonDirective } from '../../shared/_directives/spinner-button-directive';
-import { User } from '../../shared/_models/user';
 import { UserService } from '../../shared/_services/user.service';
 import { AppComponentBase } from '../../shared/app-component-base';
+import { ModalComponent } from '../modal/modal.component';
 
 declare interface TableData {
   headerRow: string[];
@@ -26,7 +26,8 @@ declare interface TableData {
       CommonModule,
       ButtonBusyDirective,
       SpinnerButtonDirective,
-      BusyIfDirective
+      BusyIfDirective,
+      ModalComponent
     ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
@@ -40,8 +41,13 @@ export class UserComponent extends AppComponentBase implements OnInit {
     headerRow: ['ID', 'Descrição'],
     dataRows: []
   };
-  users: User[] = [];
+  users: any = [];
   loading = false;
+  loadingRanking = true;
+
+  @ViewChild('myModal') myModal!: ModalComponent;
+
+  @ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
 
   constructor(injector: Injector,
     private userService: UserService,
@@ -49,14 +55,27 @@ export class UserComponent extends AppComponentBase implements OnInit {
     super(injector);
   }
 
+
+  opem() {
+
+    debugger
+    this.myModal.opemModal();
+  }
+
+  // openModal() {
+  //   this.dialog.nativeElement.showModal();
+  //   this.dialog.nativeElement.classList.add('opened');
+  // }
+
   reloadUser() {
     this.getUsers();
   }
 
   ngOnInit() {
+
     this.reloadUser();
     // this.getLotes();
-    this.getRanking();
+    // this.getRanking();
 
     // this.tableData1 = {
     //   headerRow: ['ID', 'Name', 'Country', 'City', 'Salary'],
@@ -88,13 +107,15 @@ export class UserComponent extends AppComponentBase implements OnInit {
     this.userService.getAll()
       .subscribe({
         next: (resp) => {
-          this.users = resp.data;
-          this.alertService.success("Loaded with success!", { autoClose: true });
+          this.users = resp.data.list;
+          // this.alertService.success("Loaded with success!", { autoClose: true });
           // this.toatrService.info("Test msg toastr");
           // this.sweetAlertService.success("Usuários carregados com sucesso!");
         },
         error: (err) => {
-          this.toatrService.error("Error getting users");
+          // this.toatrService.error("Error getting users");
+          this.alertService.error("Error getting users");
+          this.loading = false;
         },
         complete: () => {
           setTimeout(() => {

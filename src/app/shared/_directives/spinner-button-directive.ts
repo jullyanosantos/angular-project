@@ -27,7 +27,7 @@ export class SpinnerButtonDirective {
     }
 
     ngOnChanges() {
-        debugger
+
         if (this.isWaiting) {
             // this.el.nativeElement.innerText = '<i class="pi pi-spin pi-spinner" style="font-size: 1rem"></i>' +
             //     '<span>' + this.busyText + '</span>';

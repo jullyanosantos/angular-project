@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
 import { BaseResult } from '../_models/base-result';
+import { PagedResult } from '../_models/paged-result';
 import { User } from '../_models/user';
 
 @Injectable({
@@ -43,9 +44,10 @@ export class UserService {
 
     getAll() {
 
-        let url = `${environment.api}/assets/data-source/user.json`; 
-        return this.httpClient.get<BaseResult<User[]>>(url)
+        let url = `${environment.api}/assets/data-source/userList.json`; 
+        return this.httpClient.get<BaseResult<PagedResult<User>>>(url)
             .pipe(map(result => {
+                debugger
                 return result;
             }));
     }
