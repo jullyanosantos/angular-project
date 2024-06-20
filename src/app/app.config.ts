@@ -6,13 +6,15 @@ import { provideRouter } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { provideToastr } from 'ngx-toastr';
+import { MessageService } from 'primeng/api';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers:
-    [
+    [      
       BrowserAnimationsModule,
       BrowserModule,
+      MessageService,
       provideRouter(routes),
       provideHttpClient(withFetch()),
       provideAnimations(),

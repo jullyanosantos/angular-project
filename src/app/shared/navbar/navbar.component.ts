@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { MenuItem } from 'primeng/api';
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -9,5 +11,13 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+
+  items!: MenuItem[];
+
+    @ViewChild('menubutton') menuButton!: ElementRef;
+
+    @ViewChild('topbarmenubutton') topbarMenuButton!: ElementRef;
+
+    @ViewChild('topbarmenu') menu!: ElementRef;
 
 }

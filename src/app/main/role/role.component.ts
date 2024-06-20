@@ -2,8 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, Injector, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
+
 import { BusyIfDirective } from '../../shared/_directives/busy-if.directive';
 import { ButtonBusyDirective } from '../../shared/_directives/button-busy.directive';
 import { SpinnerButtonDirective } from '../../shared/_directives/spinner-button-directive';
@@ -23,7 +25,7 @@ declare interface TableData {
   imports:
     [
       EditRolesComponent,
-      RippleModule, 
+      RippleModule,
       ButtonModule,
       FormsModule,
       CommonModule,
@@ -38,16 +40,17 @@ declare interface TableData {
 })
 export class RoleComponent extends AppComponentBase implements OnInit {
 
-  
+
   modalRef?: BsModalRef;
   roles: any = [];
   loading = false;
   @ViewChild('permissionTreee') ptree!: PermissionTreeComponent;
   @ViewChild('createOreditRolesModal') createOreditRolesModal!: EditRolesComponent;
-  
+
   constructor(injector: Injector,
     private roleService: RoleService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private messageService: MessageService,
   ) {
     super(injector);
   }
@@ -67,9 +70,14 @@ export class RoleComponent extends AppComponentBase implements OnInit {
       .subscribe({
         next: (resp) => {
           this.roles = resp.data.list;
+          // this.ptoastrNotifyService.success("Roles carregadas roles com sucesso!");
+          this.ptoastrNotifyService.info("Roles carregadas roles com sucesso!");
+          // this.ptoastrNotifyService.warning("Roles carregadas roles com sucesso!");
+          // this.ptoastrNotifyService.error("Roles carregadas roles com sucesso!");
+
         },
         error: (err) => {
-          this.alertService.error("Error getting Roles");
+          this.ptoastrNotifyService.error("Error getting Roles: " + err.message);
           this.loading = false;
         },
         complete: () => {
@@ -81,8 +89,7 @@ export class RoleComponent extends AppComponentBase implements OnInit {
   }
 
   openModal(id: number) {
-    if (id) {
-      debugger
+    if (id) {      
       this.createOreditRolesModal.show(id);
 
       // this.createOreditRolesModal.show(userId);

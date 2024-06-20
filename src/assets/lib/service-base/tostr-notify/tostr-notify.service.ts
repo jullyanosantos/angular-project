@@ -3,7 +3,7 @@ import { ActiveToast, IndividualConfig, ToastrService } from 'ngx-toastr';
 
 @Injectable({
     providedIn: 'root'
-  })
+})
 export class ToastrNotifyService {
 
     options: IndividualConfig;

@@ -1,86 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
 
-html {
-    margin: 0px;
-    height: 100%;
-    width: 100%;
-  }
-  
-  body {
-    margin: 0px;
-    min-height: 100%;
-    width: 100%;
-  }
-  
-  body {
-    margin: 0;
-    font-family: var(--bs-font-sans-serif);
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    background-color: #fff;
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: transparent;
-  }
+@import "node_modules/primeicons/primeicons.css";
+@import "primeng/resources/primeng.css";
+@import "primeng/resources/themes/aura-light-blue/theme.css";
 
-  
+
+html {
+  height: 100%;
+  font-size: 14px;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--surface-ground);
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
 .wrapper {
-    position: relative;
-    top: 0;
-    height: 100vh;
-    background: rgba(203, 203, 210, .15);
+  position: relative;
+  top: 0;
+  height: 100vh;
+  background: rgba(203, 203, 210, .15);
 }
-.main-panel {    
-    position: relative;
-    float: right;
-    /* width: calc(100% - 260px); */
-    width: calc(100%);
+
+.main-panel {
+  position: relative;
+  float: right;
+  /* width: calc(100% - 260px); */
+  width: calc(100%);
 }
-.mr-5{
-    margin-right: 5px;
+
+.mr-5 {
+  margin-right: 5px;
 }
 
 .card {
-    border-radius: 4px;
-    background-color: #fff;
-    margin-bottom: 30px;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-bottom: 30px;
 }
 
 .card .card-header {
-    padding: 15px 15px 0;
-    background-color: #fff;
-    border-bottom: none !important;
+  padding: 15px 15px 0;
+  background-color: #fff;
+  border-bottom: none !important;
 }
 
 .card .card-title {
-    margin: 0;
-    color: #333;
-    font-weight: 300;
+  margin: 0;
+  color: #333;
+  font-weight: 300;
 }
 
 .card .card-body {
-    padding: 15px 15px 10px;
+  padding: 15px 15px 10px;
 }
+
 .card-header-action {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
 
-.text-grey
-{
-  color:grey;
+.text-grey {
+  color: grey;
 }
 
 .text-red {
   color: #e74a3b;
 }
 
-.bg-grey
-{
-    background-color: grey !important;
+.bg-grey {
+  background-color: grey !important;
 }
 
 .alert {
@@ -223,7 +221,7 @@ html {
   color: #18181c;
 }
 
-.font-weight-bold{
+.font-weight-bold {
   font-weight: bold;
 }
 
@@ -244,7 +242,7 @@ html {
   width: 2rem;
 }
 
-.rounded-circle>span{
+.rounded-circle>span {
   margin-left: .5rem;
 }
 
@@ -259,3 +257,40 @@ html {
 .p-tabview-nav-content ul li a {
   text-decoration: none !important;
 }
+/* 
+#toast-container>div {
+  opacity: 1;
+}
+
+.toast {
+  font-size: initial !important;
+  border: initial !important;
+  backdrop-filter: blur(0) !important;
+}
+
+.toast-success {
+  background-color: #51A351 !important;
+}
+
+.toast-error {
+  background-color: #BD362F !important;
+} */
+
+/* .toast-info {  
+  background-color: #2563eb!important;
+  border: solid #bfdbfe;
+  opacity: 1 !important;
+} */
+
+/* 
+.toast-info .toast-title {
+  color: #2563eb;
+}
+
+.toast-info .toast-message {
+  color: #334155;
+} */
+
+/* .toast-warning {
+  background-color: #F89406 !important;
+} */
