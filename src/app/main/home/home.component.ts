@@ -9,6 +9,8 @@ import { AppComponentBase } from '../../shared/app-component-base';
 import { SelectComponent } from '../../shared/components/select/select.component';
 import { Task } from '../tasks/shared/task';
 import { BusyIfDirective } from '../../shared/_directives/busy-if.directive';
+import { TranslateModule } from '@ngx-translate/core';
+import { RippleModule } from 'primeng/ripple';
 
 declare interface TableData {
   headerRow: string[];
@@ -19,19 +21,22 @@ declare interface TableData {
   standalone: true,
   imports:
     [
+      TranslateModule,
       ButtonModule,
       FormsModule,
       CommonModule,
       SelectComponent,
       ButtonBusyDirective,
       SpinnerButtonDirective,
-      BusyIfDirective
+      BusyIfDirective,
+      RippleModule,
+      
     ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent extends AppComponentBase implements OnInit {
-  loading = false;
+  loading = true;
   public tableData1: TableData | undefined;
 
   public tasks: Task[] = [
@@ -57,9 +62,16 @@ export class HomeComponent extends AppComponentBase implements OnInit {
       ]
     };
 
+    this.getData();
+  }
+
+  getData() {
+
+    this.loading = true;
+
     setTimeout(() => {
       this.loading = false
-    }, 2000);    
+    }, 4000);
   }
 
   onChange(id: string) {

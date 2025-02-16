@@ -1,153 +1,178 @@
 <div class="content" [busyIf]="loading">
     <div class="container-fluid">
-        <div class="row">
+        
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">
-                            <i class="pi pi-filter"></i>
-                            _filtro
-                        </h4>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h4 class="card-title text-bold">
+                                    <i class="pi pi-filter"></i>
+                                    _{{'FILTER' | translate}}
+                                </h4>
+                            </div>
+                        </div>
+                        <hr />
                     </div>
+
                     <div class="card-body">
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="selectUser">Usuário</label>
-                                <!-- <div class="alert alert-info" role="alert">
-                                    Um simples alerta primary. Olha só!
-                                  </div> -->
+                            <div class="row">
+                                <div class="col-md-4">
+
+                                    <div
+                                        class="flex flex-wrap gap-2 align-items-center justify-content-between ng-star-inserted">
+                                        <span class="p-input-icon-left w-full sm:w-20rem flex-order-1 sm:flex-order-0">
+                                            <i class="pi pi-search"></i>
+                                            <input pinputtext="" type="text" placeholder="{{'SEARCH' | translate }}"
+                                                class="p-inputtext p-component p-element w-full"></span>
+                                        <button pbutton="" pRipple icon="pi pi-search" label="Search"
+                                            class="p-element w-full sm:w-auto flex-order-0 sm:flex-order-1 p-button p-component"><span
+                                                class="p-button-icon p-button-icon-left pi pi-search"
+                                                aria-hidden="true"></span><span class="p-button-label">{{'SEARCH' |
+                                                translate }}</span></button>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="mr-2 card-header-action d-flex align-items-end justify-content-end">
-                            <button pButton pRibble type="button" icon="pi pi-refresh"
-                                class="p-button-rounded p-button-warning p-button-text" pTooltip="Atualizar"
-                                tooltipPosition="top" (click)="reloadUser()">
-                            </button>
-                            <button pButton pRibble type="button" icon="pi pi-plus"
-                                class="p-button-rounded p-button-warning p-button-text" pTooltip="Novo"
-                                tooltipPosition="top">
-                            </button>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4 class="card-title text-bold">
+                                        <i class="pi pi-user-plus"></i>
+                                        _{{'USER' | translate}}
+                                    </h4>
+                                </div>
+                                <div class="col-sm-6 d-flex align-items-end justify-content-end">
+                                    <button pButton pRibble type="button" icon="pi pi-refresh"
+                                        class="p-button-rounded p-button-warning p-button-text" pTooltip="Atualizar"
+                                        tooltipPosition="top" (click)="reloadUser()">
+                                    </button>
+                                    <button pButton pRibble type="button" icon="pi pi-plus"
+                                        class="p-button-rounded p-button-warning p-button-text" pTooltip="Novo"
+                                        tooltipPosition="top">
+                                    </button>
+                                </div>
+                            </div>
+                            <hr class="no-m-top">
+                            <!-- <p class="card-category">Here is a subtitle for this table</p> -->
                         </div>
-                        <h4 class="card-title">_usuários</h4>
-                        <!-- <p class="card-category">Here is a subtitle for this table</p> -->
-                    </div>
-                    <div class="card-body mt-5 table-full-width table-responsive">
-                        <table class="table table-hover table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nome</th>
-                                    <th>Sobrenome</th>
-                                    <th>E-mail</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if(users) {
-                                @for (record of users; track $index) {
-                                <tr>
-                                    <td>{{record.id}}</td>
-                                    <td>
-                                        <img class="rounded-circle" [src]="record.pictureUrl" alt="">
-                                        <span> {{record.firstName}}</span>
-                                    </td>
-                                    <td>{{record.lastName}}</td>
-                                    <td>{{record.userName}}</td>
-                                    <td>{{record.status}}</td>
-                                </tr>
-                                } @empty {
-                                <p>Not found</p>
-                                }
-                                }
-                                @else {
-                                <p>Loading...</p>
-                                }
-                            </tbody>
-                        </table>
+                        <div class="card-body mt-5 table-full-width table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome</th>
+                                        <th>Sobrenome</th>
+                                        <th>E-mail</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if(users) {
+                                    @for (record of users; track $index) {
+                                    <tr>
+                                        <td>{{record.id}}</td>
+                                        <td>
+                                            <img class="rounded-circle" [src]="record.pictureUrl" alt="">
+                                            <span> {{record.firstName}}</span>
+                                        </td>
+                                        <td>{{record.lastName}}</td>
+                                        <td>{{record.userName}}</td>
+                                        <td>{{record.status}}</td>
+                                    </tr>
+                                    } @empty {
+                                    <p>Not found</p>
+                                    }
+                                    }
+                                    @else {
+                                    <p>Loading...</p>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="mr-2 card-header-action d-flex align-items-end justify-content-end">
-                            <button pButton pRibble type="button" icon="pi pi-refresh"
-                                class="p-button-rounded p-button-warning p-button-text" pTooltip="Atualizar"
-                                tooltipPosition="top">
-                            </button>
-                            <button pButton pRibble type="button" icon="pi pi-plus"
-                                class="p-button-rounded p-button-warning p-button-text" pTooltip="Novo"
-                                tooltipPosition="top">
-                            </button>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="mr-2 card-header-action d-flex align-items-end justify-content-end">
+                                <button pButton pRibble type="button" icon="pi pi-refresh"
+                                    class="p-button-rounded p-button-warning p-button-text" pTooltip="Atualizar"
+                                    tooltipPosition="top">
+                                </button>
+                                <button pButton pRibble type="button" icon="pi pi-plus"
+                                    class="p-button-rounded p-button-warning p-button-text" pTooltip="Novo"
+                                    tooltipPosition="top">
+                                </button>
+                            </div>
+                            <h4 class="card-title">_lotes</h4>
+                            <!-- <p class="card-category">Here is a subtitle for this table</p> -->
                         </div>
-                        <h4 class="card-title">_lotes</h4>
-                        <!-- <p class="card-category">Here is a subtitle for this table</p> -->
-                    </div>
-                    <div class="card-body mt-5 table-full-width table-responsive">
-                        <table class="table table-hover table-striped">
-                            <thead>
-                                <tr>
-                                    <!-- <th *ngFor="let cell of lotes!.headerRow">{{ cell }}</th> -->
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- <tr *ngFor="let row of lotes!.dataRows">
+                        <div class="card-body mt-5 table-full-width table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <!-- <th *ngFor="let cell of lotes!.headerRow">{{ cell }}</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- <tr *ngFor="let row of lotes!.dataRows">
                                     <td *ngFor="let cell of row">{{cell}}</td>
                                 </tr> -->
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="mr-2 card-header-action d-flex align-items-end justify-content-end">
-                            <button pButton pRibble type="button" icon="pi pi-refresh"
-                                class="p-button-rounded p-button-warning p-button-text" pTooltip="Atualizar"
-                                tooltipPosition="top">
-                            </button>
-                            <button pButton pRibble type="button" icon="pi pi-plus"
-                                class="p-button-rounded p-button-warning p-button-text" pTooltip="Novo"
-                                tooltipPosition="top">
-                            </button>
                         </div>
-                        <h4 class="card-title">_ranking</h4>
-                        <!-- <p class="card-category">Here is a subtitle for this table</p> -->
-                    </div>
-                    <div class="card-body table-full-width table-responsive">
-                        <table class="table table-hover table-striped">
-                            <thead>
-                                <tr>
-                                    <th *ngFor="let cell of ranking!.headerRow">{{ cell }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let row of ranking!.dataRows">
-                                    <td *ngFor="let cell of row">{{cell}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="mr-2 card-header-action d-flex align-items-end justify-content-end">
+                                <button pButton pRibble type="button" icon="pi pi-refresh"
+                                    class="p-button-rounded p-button-warning p-button-text" pTooltip="Atualizar"
+                                    tooltipPosition="top">
+                                </button>
+                                <button pButton pRibble type="button" icon="pi pi-plus"
+                                    class="p-button-rounded p-button-warning p-button-text" pTooltip="Novo"
+                                    tooltipPosition="top">
+                                </button>
+                            </div>
+                            <h4 class="card-title">_ranking</h4>
+                            <!-- <p class="card-category">Here is a subtitle for this table</p> -->
+                        </div>
+                        <div class="card-body table-full-width table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th *ngFor="let cell of ranking!.headerRow">{{ cell }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let row of ranking!.dataRows">
+                                        <td *ngFor="let cell of row">{{cell}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
     </div>
-</div>

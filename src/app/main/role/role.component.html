@@ -4,10 +4,15 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">
-                            <i class="pi pi-filter"></i>
-                            _filtro
-                        </h4>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h4 class="card-title text-bold">
+                                    <i class="pi pi-filter"></i>
+                                    _{{'FILTER' | translate}}
+                                </h4>
+                            </div>
+                        </div>
+                        <hr />
                     </div>
                     <div class="card-body">
                         <div class="form-row">
@@ -31,22 +36,31 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <div class="mr-2 card-header-action d-flex align-items-end justify-content-end">
-                                    <button pButton pRibble type="button" icon="pi pi-refresh icon icon-effect-rotate"
-                                        class="p-button-rounded p-button-warning p-button-text p-button-sm"
-                                        pTooltip="Atualizar" tooltipPosition="top" (click)="reloadPage()">
-                                    </button>
-                                    <button pButton pRibble type="button" icon="pi pi-plus icon icon-effect-rotate"
-                                        class="p-button-rounded p-button-warning p-button-text" pTooltip="Novo"
-                                        tooltipPosition="top">
-                                    </button>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h4 class="card-title text-bold">
+                                            <i class="pi pi-lock"></i>
+                                            _{{'AUTHORIZATIONS' | translate}}
+                                        </h4>
+                                    </div>
+                                    <div class="col-sm-6 d-flex align-items-end justify-content-end">
+                                        <button pButton pRibble type="button"
+                                            icon="pi pi-refresh icon icon-effect-rotate"
+                                            class="p-button-rounded p-button-warning p-button-text p-button-sm"
+                                            pTooltip="Atualizar" tooltipPosition="top" (click)="reloadPage()">
+                                        </button>
+                                        <button pButton pRibble type="button" icon="pi pi-plus icon icon-effect-rotate"
+                                            class="p-button-rounded p-button-warning p-button-text" pTooltip="Novo"
+                                            tooltipPosition="top">
+                                        </button>
+                                    </div>
                                 </div>
-                                <h4 class="card-title">_autorizações</h4>
+                                <hr class="no-m-top">
+                                <!-- <p class="card-category">Here is a subtitle for this table</p> -->
                             </div>
                             <div class="card-body mt-5 table-full-width table-responsive">
                                 <table class="table table-hover table-striped">

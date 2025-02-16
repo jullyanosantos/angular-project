@@ -9,12 +9,18 @@ export class SpinnerButtonDirective {
     @Input() busyText: string = "";
 
     private _button: any;
+    private _originalButtonInnerHtml: string = "";
 
     originalInnerText: string = "";
     originalButtonInnerHtml: string = "";
 
     constructor(private el: ElementRef) {
-        this._button = this.el.nativeElement;
+        // // debugger
+        setTimeout(() => {
+            this._button = this.el.nativeElement;
+            this._originalButtonInnerHtml = this._button.innerHTML;
+            this.originalButtonInnerHtml = this._button.innerHTML;
+        }, 100);
     }
 
     ngOnInit() {
@@ -23,12 +29,25 @@ export class SpinnerButtonDirective {
     }
 
     ngAfterViewInit(): void {
-        this.originalButtonInnerHtml = this._button.innerHTML;
+        // setTimeout(() => {
+        //     this._button = this.el.nativeElement;
+        //     this._originalButtonInnerHtml = this._button.innerHTML;
+        //     this.originalButtonInnerHtml = this._button.innerHTML;
+        // }, 300);
     }
 
     ngOnChanges() {
 
-        if (this.isWaiting) {
+        setTimeout(() => {
+            this.refreshState(this.isWaiting);
+        }, 200);
+    }
+
+    refreshState(isWaiting: boolean): void {
+
+        this.originalButtonInnerHtml = this._button.innerHTML;
+
+        if (isWaiting) {
             // this.el.nativeElement.innerText = '<i class="pi pi-spin pi-spinner" style="font-size: 1rem"></i>' +
             //     '<span>' + this.busyText + '</span>';
 
@@ -40,8 +59,11 @@ export class SpinnerButtonDirective {
             // if (this.el.nativeElement.innerText == 'Carregando...') {
             //     this.el.nativeElement.innerText = this.originalInnerText;
             // }
-            this.el.nativeElement.innerText = this.originalInnerText != "" ? this.originalInnerText : this.el.nativeElement.innerText;
+
+            //this.el.nativeElement.innerText = this.originalInnerText != "" ? this.originalInnerText : this.el.nativeElement.innerText;
+            this.el.nativeElement.innerHTML = this._originalButtonInnerHtml; //this.originalButtonInnerHtml;
         }
-        this.el.nativeElement.disabled = this.isWaiting;
+
+        this.el.nativeElement.disabled = isWaiting
     }
 }

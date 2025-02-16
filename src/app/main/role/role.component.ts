@@ -13,6 +13,7 @@ import { RoleService } from '../../shared/_services/role.service';
 import { AppComponentBase } from '../../shared/app-component-base';
 import { PermissionTreeComponent } from '../../shared/components/permission-tree/permission-tree.component';
 import { EditRolesComponent } from './edit-roles/edit-roles-modal.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 declare interface TableData {
   headerRow: string[];
@@ -32,7 +33,8 @@ declare interface TableData {
       ButtonBusyDirective,
       SpinnerButtonDirective,
       BusyIfDirective,
-      PermissionTreeComponent
+      PermissionTreeComponent,
+      TranslateModule
     ],
   templateUrl: './role.component.html',
   styleUrl: './role.component.css',

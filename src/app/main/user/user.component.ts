@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Injector, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { first } from 'rxjs';
+import { RippleModule } from 'primeng/ripple';
 
 import { BusyIfDirective } from '../../shared/_directives/busy-if.directive';
 import { ButtonBusyDirective } from '../../shared/_directives/button-busy.directive';
@@ -27,7 +29,9 @@ declare interface TableData {
       ButtonBusyDirective,
       SpinnerButtonDirective,
       BusyIfDirective,
-      ModalComponent
+      ModalComponent,
+      RippleModule,
+      TranslateModule
     ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'

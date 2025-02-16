@@ -17,7 +17,7 @@ export class ButtonBusyDirective implements OnInit, AfterViewInit {
     private _button: any;
     _originalButtonInnerHtml: string = "";
 
-    constructor(private _element: ElementRef) { 
+    constructor(private _element: ElementRef) {
         this._button = this._element.nativeElement;
     }
 
@@ -30,10 +30,15 @@ export class ButtonBusyDirective implements OnInit, AfterViewInit {
     }
 
     ngOnChanges() {
-        this.refreshState(this.isBusy);
+        // debugger
+        setTimeout(() => {
+            this.refreshState(this.isBusy);
+        }, 150);
+        
     }
 
     refreshState(isBusy: boolean): void {
+        // debugger
         if (!this._button) {
             return;
         }
@@ -46,7 +51,7 @@ export class ButtonBusyDirective implements OnInit, AfterViewInit {
             this._originalButtonInnerHtml = this._button.innerHTML;
 
             this._button.innerHTML = '<i class="pi pi-spin pi-spinner" style="font-size: 1rem"></i> ' +
-                '<span>' + this.busyText + '</span>';
+                '<span> &nbsp;' + this.busyText + '</span>';
 
             this._button.setAttribute('_disabledBefore', true);
         } else {

@@ -1,6 +1,6 @@
-{  
-    "HOME":"Home",
-    "APP_NAME": "Application name",
+{
+    "HOME": "Home",
+    "APP_NAME": "Nome da Aplicação",
     "DEACTIVATE": "DEACTIVATE",
     "EMAIL_A_LINK": "EMAIL A LINK",
     "FULL_SCREEN": "FULL SCREEN",
@@ -9,5 +9,9 @@
     "SAVE": "SAVE",
     "SAVE_AS": "SAVE AS",
     "SAVE_AND_CLOSE": "SAVE & CLOSE",
-    "SET_AS_DEFAULT": "SET AS DEFAULT"    
+    "SET_AS_DEFAULT": "SET AS DEFAULT",
+    "SEARCH": "Pesquisar",
+    "FILTER": "Filtro",
+    "USER": "Usuário",
+    "AUTHORIZATIONS": "Autorizações"
 }

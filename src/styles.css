@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "node_modules/primeicons/primeicons.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
-@import "primeng/resources/themes/aura-light-blue/theme.css";
 
 
 html {
@@ -257,6 +257,7 @@ body {
 .p-tabview-nav-content ul li a {
   text-decoration: none !important;
 }
+
 /* 
 #toast-container>div {
   opacity: 1;
@@ -294,3 +295,12 @@ body {
 /* .toast-warning {
   background-color: #F89406 !important;
 } */
+
+.no-m-top {
+  margin-top: 0 !important;
+}
+
+.m-10-y {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}

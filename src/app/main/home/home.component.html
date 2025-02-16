@@ -9,17 +9,37 @@
             </div>
             <div class="card-body mt-5">
 
-                <div class="form-group">
+                <div class="row">
                     <!-- <button type="button" class="btn btn-primary" 
                         [buttonBusy]="loading" 
                         [busyText]="'Carregando...'"
                         [disabled]="loading">Enviar</button> -->
 
-                        <button  type="button" class="btn btn-primary" 
-                        [spinnerButton]="loading"
-                        [busyText]="'Carregando...'"
-                        >Get Data</button>
+                    <!-- <div class="col-md-3">
 
+                        <button pRipple icon="pi pi-search" label="Search" (click)="getData()" [spinnerButton]="loading"
+                            [busyText]="'Carregando...'"
+                            class="p-element w-full sm:w-auto flex-order-0 sm:flex-order-1 p-button p-component">
+
+                        </button>
+                    </div> -->
+
+                    <div class="col-md-3">
+                        <button pRipple (click)="getData()"
+                            class="p-element w-full sm:w-auto flex-order-0 sm:flex-order-1 p-button p-component"
+                            [buttonBusy]="loading" [busyText]="' Carregando...'">
+                            <i class="pi pi-search"></i>&nbsp;{{ 'SEARCH' | translate }}
+                        </button>
+
+                    </div>
+
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-primary" [spinnerButton]="loading"
+                            [busyText]="'Carregando...'" (click)="getData()">
+                            <i class="pi pi-check"></i>
+                            {{ 'SEARCH' | translate }}
+                        </button>
+                    </div>
                     <!-- <input type="submit" class="btnSubmit" value="Login" [buttonBusy]="loading"
                         [busyText]="' Carregando...'" [disabled]="loading" /> -->
                 </div>
@@ -63,7 +83,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12" [busyIf]="loading">
                                 <div class="card">
                                     <div class="card-header">
                                         <div class="mr-2 card-header-action d-flex align-items-end justify-content-end">
